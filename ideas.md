@@ -9,3 +9,5 @@ as it stands, i will be back after learning what static methods are, i might or 
 right clicking a flag should make the cell back to default state
 
 left
+
+does this show up on github?
