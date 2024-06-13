@@ -39,16 +39,6 @@ class Cell:
         
         self.btn_obj = btn
 
-    @staticmethod
-    def cell_count_label(location):
-        lbl = Label(
-            location,
-            text=f"Cells Left:{Cell.cell_count}",
-            bg="paleturquoise",
-            font=("Arial", 20)
-        )
-        Cell.cell_count_label_obj = lbl
-
     visited = set()
     def left_click_action(self, event):
         if self.is_mine:
@@ -60,6 +50,13 @@ class Cell:
                 text=f"Cells Left: {Cell.cell_count}"
             )
             self.show_cell()
+            if Cell.cell_count == settings.MINES_COUNT:
+                time.sleep(0.5)
+                ctypes.windll.user32.MessageBoxW(
+                0, "You Won.",
+                "Game Over!!", 0
+                )
+                sys.exit()
             
     
     def check(self):
@@ -128,6 +125,7 @@ class Cell:
             text=6,
             fg="mediumturquoise"
             )
+        self.btn_obj.update()
         
 
     def get_cell_by_axis(self, x, y):
@@ -148,12 +146,22 @@ class Cell:
                         cells.append(Cell.all[i*(settings.GRID_COL) + j])
         return cells
 
+    @staticmethod
+    def cell_count_label(location):
+        lbl = Label(
+            location,
+            text=f"Cells Left:{Cell.cell_count}",
+            bg="paleturquoise",
+            font=("Arial", 20)
+        )
+        Cell.cell_count_label_obj = lbl
     
     @staticmethod
     def mine_count_label(location):
         lbl = Label(
             location,
             text=f"Mines Left:{Cell.mine_count}",
+            anchor="w",
             bg="paleturquoise",
             font=("Arial", 20)
         )
