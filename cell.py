@@ -1,9 +1,12 @@
-from tkinter import Button, Label, PhotoImage
+from tkinter import Button, Label, PhotoImage, messagebox
 import random
 import settings
 import ctypes
 import sys
 import time
+import platform
+import tkinter as tk
+
 
 class Cell:
     all = [] # will contain objects
@@ -52,10 +55,17 @@ class Cell:
             self.show_cell()
             if Cell.cell_count == settings.MINES_COUNT:
                 time.sleep(0.5)
-                ctypes.windll.user32.MessageBoxW(
-                0, "You Won.",
-                "Game Over!!", 0
-                )
+                if platform.system() != 'Linux':
+                    ctypes.windll.user32.MessageBoxW(
+                    0, "You Won.",
+                    "Game Over!!", 0
+                    )
+                else :
+                    root = tk.Tk().withdraw()  # hide the root window
+
+                    messagebox.showinfo('lol', 'you won')  # show the messagebox
+
+
                 sys.exit()
             
     
@@ -76,10 +86,16 @@ class Cell:
         self.btn_obj.configure(bg="red")
         self.btn_obj.update()
         time.sleep(0.5)
-        ctypes.windll.user32.MessageBoxW(
-            0, "That was a mine.",
-            "Game Over!!", 0
-        )
+        if platform.system() != 'Linux':
+            ctypes.windll.user32.MessageBoxW(
+                0, "That was a mine.",
+                "Game Over!!", 0
+            )
+        else :
+            root = tk.Tk().withdraw()  # hide the root window
+
+            messagebox.showinfo('lol', 'you lose')  # show the messagebox
+
         sys.exit()
 
     def show_cell(self):
