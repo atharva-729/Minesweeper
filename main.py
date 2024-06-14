@@ -78,6 +78,9 @@ for x in range(settings.GRID_ROWS):
             row=x, column=y
         )
 
+Cell.cell_count = settings.CELL_COUNT
+Cell.mine_count = settings.MINES_COUNT
+
 Cell.cell_count_label(top_frame)
 Cell.cell_count_label_obj.place(
     x=0, y=0

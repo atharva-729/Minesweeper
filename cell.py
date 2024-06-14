@@ -155,6 +155,7 @@ class Cell:
             font=("Arial", 20)
         )
         Cell.cell_count_label_obj = lbl
+        Cell.cell_count_label_obj.update()
     
     @staticmethod
     def mine_count_label(location):
