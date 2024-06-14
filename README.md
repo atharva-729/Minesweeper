@@ -5,6 +5,7 @@ This project implements the classic Minesweeper game using Python's Tkinter libr
 - **Kinda Hard:** Provides a more challenging experience.
 - **DO NOT PRESS:** Named such beacuse a single cell click took 4-5 seconds to update (on my machine), you'll be genuinely frustrated playing in this mode.
 
+****PLEASE NOTE: AT PRESENT, THIS GAME ONLY RUNS AS INTENDED ON WINDOWS (I have no idea about Mac)****
 
 **How to Play:**
 
