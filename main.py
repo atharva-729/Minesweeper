@@ -15,7 +15,7 @@ def choose_easy():
     settings.GRID_ROWS = 9
     settings.GRID_COL = 9
     settings.CELL_COUNT = 9*9
-    settings.MINES_COUNT = (9*9)//4
+    settings.MINES_COUNT = (9*9)//6
 
 def choose_medium():
     difficulty_window.destroy()
@@ -24,7 +24,7 @@ def choose_medium():
     settings.GRID_ROWS = 10
     settings.GRID_COL = 20
     settings.CELL_COUNT = 10*20
-    settings.MINES_COUNT = (10*20)//4
+    settings.MINES_COUNT = (10*20)//5
 
 def choose_hard():
     difficulty_window.destroy()
